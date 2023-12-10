@@ -37,17 +37,30 @@ namespace WaveFunctionCollapse
                     return;
                 }
             }
-            //if we run out of cells before the grid is complete we need to pick a high entropy cell so we restart the solver
-            if (_propagationHelper.CheckForConflicts() && _propagationHelper.PairsToPropagate.Count == 0 && _propagationHelper.LowEntropySet.Count == 0)
+            
+            if (_propagationHelper.PairsToPropagate.Count == 0 && _propagationHelper.LowEntropySet.Count == 0)
             {
                 _propagationHelper.SetConflictFlag();
+                Debug.Log("No Pairs to Propagate and No low entropy cells to collapse \n Declaring Conflict");
             }
         }
 
         private void ProcessCell(VectorPair propagatePair)
         {
-            if (_outputGrid.CheckIfCellIsCollapsed(propagatePair.CellToPropagatePosition))
+            // Lower conflict rate but can become an infinite loop
+            // if (_outputGrid.CheckIfCellIsCollapsed(propagatePair.CellToPropagatePosition))
+            // {
+            //     _propagationHelper.EnqueueUncollapsedNeighbours(propagatePair);
+            // }
+            // else
+            // {
+            //     PropagateNeighbour(propagatePair);
+            // }
+            
+            //causes high conflict rate but prevents infinite propagation queue
+            if (!_outputGrid.CheckIfCellIsCollapsed(propagatePair.BaseCellPosition))
             {
+                CollapseCell(propagatePair.BaseCellPosition);
                 _propagationHelper.EnqueueUncollapsedNeighbours(propagatePair);
             }
             else
@@ -114,6 +127,7 @@ namespace WaveFunctionCollapse
             }
             else
             {
+                Debug.Log("Collision in" + cellCoords.ToString() +" \n Declaring Conflict");
                 _propagationHelper.SetConflictFlag();
             }
         }

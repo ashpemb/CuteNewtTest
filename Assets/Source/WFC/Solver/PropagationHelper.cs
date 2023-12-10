@@ -39,6 +39,7 @@ namespace WaveFunctionCollapse
 
             if (newPossiblePatternCount == 0)
             {
+                Debug.Log("Possible pattern count = 0 after propagation from" +propagationPair.BaseCellPosition+" to "+ propagationPair.CellToPropagatePosition +" \n Declaring Conflict");
                 _cellWithNoSolutionPresent = true;
             }
 
@@ -46,6 +47,10 @@ namespace WaveFunctionCollapse
             {
                 _cellWithNoSolutionPresent =
                     _coreHelper.CheckCellSolutionForCollision(propagationPair.CellToPropagatePosition, _outputGrid);
+                if (_cellWithNoSolutionPresent)
+                {
+                    Debug.Log("Collision after propagation from" +propagationPair.BaseCellPosition+" to "+ propagationPair.CellToPropagatePosition +" \n Declaring Conflict");
+                }
             }
         }
 
