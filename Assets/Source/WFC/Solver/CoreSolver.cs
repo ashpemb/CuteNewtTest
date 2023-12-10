@@ -23,6 +23,7 @@ namespace WaveFunctionCollapse
 
         public void Propagate()
         {
+            //Algorithm can get stuck here, endlessly adding to PairsToPropagate
             while (_propagationHelper.PairsToPropagate.Count > 0)
             {
                 var propagatePair = _propagationHelper.PairsToPropagate.Dequeue();

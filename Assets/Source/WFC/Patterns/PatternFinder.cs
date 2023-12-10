@@ -69,7 +69,7 @@ namespace WaveFunctionCollapse
                     }
                     else
                     {
-                        patternIndicesGrid[row + patternSize - 1][col = patternSize - 1] =
+                        patternIndicesGrid[row + patternSize - 1][col + patternSize - 1] =
                             patternHashCodeDictionary[hashValue].Pattern.Index;
                     }
                 }
@@ -108,7 +108,7 @@ namespace WaveFunctionCollapse
             foreach (Direction dir in Enum.GetValues(typeof(Direction)))
             {
                 int possiblePatternIndex = patternDataResults.GetNeighbourInDirection(x, y, dir);
-                if (possiblePatternIndex > 0)
+                if (possiblePatternIndex >= 0)
                 {
                     patternNeighbours.AddPatternToDictionary(dir, possiblePatternIndex);
                 }

@@ -18,12 +18,12 @@ namespace WaveFunctionCollapse
         {
             _patternManager = _inPatternManager;
 
-            for (int i = 0; i < _patternManager.GetNumberOfPatterns(); i++)
-            {
-                _totalFrequency += _patternManager.GetPatternFrequency(i);
-            }
-
-            _totalFrequencyLog = MathF.Log(_totalFrequency, 2);
+            // for (int i = 0; i < _patternManager.GetNumberOfPatterns(); i++)
+            // {
+            //     _totalFrequency += _patternManager.GetPatternFrequency(i);
+            // }
+            //
+            // _totalFrequencyLog = MathF.Log(_totalFrequency, 2);
         }
 
         public int SelectSolutionPatternFromFrequency(List<int> possibleValues)
@@ -80,9 +80,10 @@ namespace WaveFunctionCollapse
             float sum = 0;
             foreach (var possibleIndex in outputGrid.GetPossibleValuesForPosition(position))
             {
+                _totalFrequency += _patternManager.GetPatternFrequency(possibleIndex);
                 sum += _patternManager.GetPatternFrequencyLog2(possibleIndex);
             }
-
+            _totalFrequencyLog = MathF.Log(_totalFrequency, 2);
             return _totalFrequencyLog - (sum / _totalFrequency);
         }
 

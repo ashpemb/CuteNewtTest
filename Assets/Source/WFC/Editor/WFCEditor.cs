@@ -14,11 +14,6 @@ public class WFCEditor : Editor
             myScript.CreateWFC();
             myScript.CreateTilemap();
         }
-
-        if (GUILayout.Button("Save Tilemap"))
-        {
-            myScript.SaveTilemap();
-        }
         
         if (GUILayout.Button("Clear Tilemap"))
         {

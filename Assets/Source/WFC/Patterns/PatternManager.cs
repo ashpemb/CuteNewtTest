@@ -106,7 +106,7 @@ namespace WaveFunctionCollapse
             {
                 for (int row_1 = 0; row_1 < _patternSize; row_1++)
                 {
-                    for (int col_1 = 0; col < _patternSize; col++)
+                    for (int col_1 = 0; col_1 < _patternSize; col_1++)
                     {
                         valueGrid[row + row_1][col + col_1] = pattern.GetGridValue(col_1, row_1);
                     }
