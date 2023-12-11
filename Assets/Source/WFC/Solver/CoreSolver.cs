@@ -23,18 +23,27 @@ namespace WaveFunctionCollapse
 
         public void Propagate()
         {
+            bool canQueueForPropagation = true;
             //Algorithm can get stuck here, endlessly adding to PairsToPropagate
             while (_propagationHelper.PairsToPropagate.Count > 0)
             {
                 var propagatePair = _propagationHelper.PairsToPropagate.Dequeue();
                 if (_propagationHelper.CheckIfPairShouldBeProcessed(propagatePair))
                 {
-                    ProcessCell(propagatePair);
+                    ProcessCell(propagatePair, canQueueForPropagation);
                 }
 
                 if (_propagationHelper.CheckForConflicts() || _outputGrid.CheckIfGridIsSolved())
                 {
                     return;
+                }
+
+                //stop gap to prevent endless queueing
+                if (_propagationHelper.PairsToPropagate.Count > 10000)
+                {
+                    // Debug.Log("Propagation might be going infinite, breaking out");
+                    // return;
+                    canQueueForPropagation = false;
                 }
             }
             
@@ -45,28 +54,31 @@ namespace WaveFunctionCollapse
             }
         }
 
-        private void ProcessCell(VectorPair propagatePair)
+        private void ProcessCell(VectorPair propagatePair, bool canQueueForPropagation)
         {
-            // Lower conflict rate but can become an infinite loop
-            // if (_outputGrid.CheckIfCellIsCollapsed(propagatePair.CellToPropagatePosition))
+            //Lower conflict rate but can become an infinite loop
+            if (_outputGrid.CheckIfCellIsCollapsed(propagatePair.CellToPropagatePosition))
+            {
+                if (canQueueForPropagation)
+                {
+                    _propagationHelper.EnqueueUncollapsedNeighbours(propagatePair);
+                }
+            }
+            else
+            {
+                PropagateNeighbour(propagatePair);
+            }
+            
+            //causes high conflict rate but prevents infinite propagation queue
+            // if (!_outputGrid.CheckIfCellIsCollapsed(propagatePair.BaseCellPosition))
             // {
+            //     CollapseCell(propagatePair.BaseCellPosition);
             //     _propagationHelper.EnqueueUncollapsedNeighbours(propagatePair);
             // }
             // else
             // {
             //     PropagateNeighbour(propagatePair);
             // }
-            
-            //causes high conflict rate but prevents infinite propagation queue
-            if (!_outputGrid.CheckIfCellIsCollapsed(propagatePair.BaseCellPosition))
-            {
-                CollapseCell(propagatePair.BaseCellPosition);
-                _propagationHelper.EnqueueUncollapsedNeighbours(propagatePair);
-            }
-            else
-            {
-                PropagateNeighbour(propagatePair);
-            }
         }
 
         private void PropagateNeighbour(VectorPair propagatePair)
