@@ -1538,6 +1538,32 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &714927990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4121630887553393883, guid: fdd59fcbf3e0c3646948a57cca6d9829, type: 3}
+  m_PrefabInstance: {fileID: 1504142614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &714927993
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714927990}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0c8c4b7ef838ac44bea31b3a3788d98, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &795911310
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,7 +3381,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3416,6 +3442,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2446257595442078091, guid: fdd59fcbf3e0c3646948a57cca6d9829, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -28214745, guid: bd48d7328c5936a4d9683a6be7db76e7, type: 3}
+    - target: {fileID: 4121630887553393883, guid: fdd59fcbf3e0c3646948a57cca6d9829, type: 3}
+      propertyPath: m_Name
+      value: Sprite
+      objectReference: {fileID: 0}
     - target: {fileID: 8652833813234293607, guid: fdd59fcbf3e0c3646948a57cca6d9829, type: 3}
       propertyPath: m_Name
       value: Character
@@ -3427,6 +3461,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8652833813234293607, guid: fdd59fcbf3e0c3646948a57cca6d9829, type: 3}
       insertIndex: -1
       addedObject: {fileID: 939943989}
+    - targetCorrespondingSourceObject: {fileID: 4121630887553393883, guid: fdd59fcbf3e0c3646948a57cca6d9829, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 714927993}
   m_SourcePrefab: {fileID: 100100000, guid: fdd59fcbf3e0c3646948a57cca6d9829, type: 3}
 --- !u!1 &1964921657
 GameObject:
