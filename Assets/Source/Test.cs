@@ -22,13 +22,6 @@ public class Test : MonoBehaviour
 
     private TileMapOutput output;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        CreateWFC();
-        
-    }
-
     public void CreateWFC()
     {
         InputReader reader = new InputReader(InputTilemap);

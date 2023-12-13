@@ -2023,6 +2023,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: fixedSet_83
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 156
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd12a03682a22e1478d3210274b3082d
+      internalID: -802646064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fixedSet_84
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 144
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 167aed1efc0e01349a0f0c6fc4c2590f
+      internalID: 1060972475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fixedSet_85
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 156
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b94c6a57f37e4fa4596e174a040f00d3
+      internalID: 1366662705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fixedSet_86
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 144
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc98596cb87ea354d8546cedbd3d4b39
+      internalID: 2023822846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2116,6 +2200,10 @@ TextureImporter:
       fixedSet_80: -980064397
       fixedSet_81: 833808414
       fixedSet_82: 1710485541
+      fixedSet_83: 1113770988
+      fixedSet_84: -802646064
+      fixedSet_85: 1060972475
+      fixedSet_86: 1366662705
       fixedSet_9: -394710886
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
